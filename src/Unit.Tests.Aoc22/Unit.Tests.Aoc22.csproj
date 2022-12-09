@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -19,7 +19,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Days\" />
+    <ProjectReference Include="..\Aoc22\Aoc22.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\day01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
