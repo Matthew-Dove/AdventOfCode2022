@@ -35,7 +35,7 @@
             var calories = _exampleData;
 
             var aggregatedCalories = _day01.Parse(calories);
-            var highestCalorie = _day01.GetTop(aggregatedCalories);
+            var highestCalorie = _day01.GetTop(1, aggregatedCalories);
 
             Assert.AreEqual(24000, highestCalorie);
         }
@@ -46,7 +46,7 @@
             var calories = File.ReadAllText("./Data/day01.txt");
 
             var aggregatedCalories = _day01.Parse(calories);
-            var highestCalorie = _day01.GetTop(aggregatedCalories);
+            var highestCalorie = _day01.GetTop(1, aggregatedCalories);
             
             Assert.AreEqual(68442, highestCalorie);
         }

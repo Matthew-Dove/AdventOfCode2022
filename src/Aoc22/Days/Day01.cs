@@ -21,22 +21,10 @@
                 }
 
                 elf += int.Parse(foodList[i]);
-                if (i + 1 == foodList.Length) elfs.Add(elf);
             }
 
+            elfs.Add(elf);
             return elfs.ToArray();
-        }
-
-        public int GetTop(int[] aggregatedCalories)
-        {
-            var highestCalorie = 0;
-
-            foreach (var aggregatedCalorie in aggregatedCalories)
-            {
-                if (aggregatedCalorie > highestCalorie) highestCalorie = aggregatedCalorie;
-            }
-
-            return highestCalorie;
         }
 
         public int GetTop(int n, int[] aggregatedCalories)
