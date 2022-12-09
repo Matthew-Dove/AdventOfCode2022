@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Unit.Tests.Aoc22.Days;
+﻿namespace Unit.Tests.Aoc22.Days;
 
 /**
  * https://adventofcode.com/2022/day/2
