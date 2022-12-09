@@ -26,7 +26,7 @@ public class Day01Tests
     [TestInitialize]
     public void Initialize()
     {
-        _day01= new Day01();
+        _day01 = new Day01();
     }
 
     [TestMethod]
