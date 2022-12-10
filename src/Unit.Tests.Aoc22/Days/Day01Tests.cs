@@ -21,12 +21,12 @@ public class Day01Tests
 
 10000";
 
-    private Day01 _day01;
+    private Day07 _day01;
 
     [TestInitialize]
     public void Initialize()
     {
-        _day01 = new Day01();
+        _day01 = new Day07();
     }
 
     [TestMethod]
