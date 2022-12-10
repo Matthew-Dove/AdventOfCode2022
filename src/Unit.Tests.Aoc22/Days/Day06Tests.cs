@@ -6,7 +6,7 @@
 [TestClass]
 public class Day06Tests
 {
-    private const string _exampleData = @"";
+    private const string _exampleData = @"mjqjpqmgbljsphdztnvjfqwrcgsmlb";
 
     private Day06 _day06;
 
@@ -21,24 +21,38 @@ public class Day06Tests
     {
         var input = _exampleData;
 
-        var output = _day06.Parse(input);
+        var marker = _day06.GetFirstMarker(input, 4);
+
+        Assert.AreEqual(7, marker);
     }
 
     [TestMethod]
     public void PartOnePuzzle()
     {
-        
+        var input = File.ReadAllText("./Data/day06.txt");
+
+        var marker = _day06.GetFirstMarker(input, 4);
+
+        Assert.AreEqual(1356, marker);
     }
 
     [TestMethod]
     public void PartTwoExample()
     {
-        
+        var input = _exampleData;
+
+        var marker = _day06.GetFirstMarker(input, 14);
+
+        Assert.AreEqual(19, marker);
     }
 
     [TestMethod]
     public void PartTwoPuzzle()
     {
-        
+        var input = File.ReadAllText("./Data/day06.txt");
+
+        var marker = _day06.GetFirstMarker(input, 14);
+
+        Assert.AreEqual(2564, marker);
     }
 }
