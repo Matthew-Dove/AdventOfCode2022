@@ -6,7 +6,11 @@
 [TestClass]
 public class Day08Tests
 {
-    private const string _exampleData = @"";
+    private const string _exampleData = @"30373
+25512
+65332
+33549
+35390";
 
     private Day08 _day08;
 
@@ -21,24 +25,42 @@ public class Day08Tests
     {
         var input = _exampleData;
 
-        var output = _day08.Parse(input);
+        var trees = _day08.Parse(input);
+        var visibleTrees = _day08.GetVisible(trees);
+
+        Assert.AreEqual(21, visibleTrees);
     }
 
     [TestMethod]
     public void PartOnePuzzle()
     {
-        
+        var input = File.ReadAllText("./Data/day08.txt"); ;
+
+        var trees = _day08.Parse(input);
+        var visibleTrees = _day08.GetVisible(trees);
+
+        Assert.AreEqual(1814, visibleTrees);
     }
 
     [TestMethod]
     public void PartTwoExample()
     {
-        
+        var input = _exampleData;
+
+        var trees = _day08.Parse(input);
+        var score = _day08.GetScenicScore(trees);
+
+        Assert.AreEqual(8, score);
     }
 
     [TestMethod]
     public void PartTwoPuzzle()
     {
-        
+        var input = File.ReadAllText("./Data/day08.txt"); ;
+
+        var trees = _day08.Parse(input);
+        var score = _day08.GetScenicScore(trees);
+
+        Assert.AreEqual(330786, score);
     }
 }
