@@ -44,3 +44,8 @@
   * [Test](./src/Unit.Tests.Aoc22/Days/Day08Tests.cs)
   * [Code](./src/Aoc22/Days/Day08.cs)
 
+* Day 09
+  * [Info](https://adventofcode.com/2022/day/9)
+  * [Test](./src/Unit.Tests.Aoc22/Days/Day09Tests.cs)
+  * [Code](./src/Aoc22/Days/Day09.cs)
+
