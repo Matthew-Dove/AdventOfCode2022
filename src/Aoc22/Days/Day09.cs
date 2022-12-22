@@ -16,8 +16,6 @@ public class Day09
         {
             for (int j = 0; j < moves[i].Steps; j++)
             {
-                var target = head;
-
                 if (moves[i].Direction == Direction.Up) head.r++;
                 else if (moves[i].Direction == Direction.Down) head.r--;
                 else if (moves[i].Direction == Direction.Left) head.c--;
@@ -25,25 +23,13 @@ public class Day09
 
                 if (ShouldFollow(tail, head))
                 {
-                    tail = target;
+                    tail = GetPosition(tail, head);
                     positions.Add($"({tail.c},{tail.r})");
                 }
             }
         }
 
         return positions.Count;
-    }
-
-    private bool ShouldFollow((int r, int c) tail, (int r, int x) head)
-    {
-        for (int r = tail.r - 1; r < tail.r + 2; r++)
-        {
-            for (int c = tail.c - 1; c < tail.c + 2; c++)
-            {
-                if (head == (r, c)) return false;
-            }
-        }
-        return true;
     }
 
     public int SimulatePartTwo(Move[] moves)
@@ -73,6 +59,18 @@ public class Day09
         }
 
         return positions.Count;
+    }
+
+    private static bool ShouldFollow((int r, int c) tail, (int r, int c) head)
+    {
+        for (int r = tail.r - 1; r < tail.r + 2; r++)
+        {
+            for (int c = tail.c - 1; c < tail.c + 2; c++)
+            {
+                if (head == (r, c)) return false;
+            }
+        }
+        return true;
     }
 
     private static (int, int) GetPosition((int y, int x) tail, (int y, int x) head)
