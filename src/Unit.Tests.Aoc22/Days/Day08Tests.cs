@@ -34,7 +34,7 @@ public class Day08Tests
     [TestMethod]
     public void PartOnePuzzle()
     {
-        var input = File.ReadAllText("./Data/day08.txt"); ;
+        var input = File.ReadAllText("./Data/day08.txt");
 
         var trees = _day08.Parse(input);
         var visibleTrees = _day08.GetVisible(trees);
@@ -56,7 +56,7 @@ public class Day08Tests
     [TestMethod]
     public void PartTwoPuzzle()
     {
-        var input = File.ReadAllText("./Data/day08.txt"); ;
+        var input = File.ReadAllText("./Data/day08.txt");
 
         var trees = _day08.Parse(input);
         var score = _day08.GetScenicScore(trees);
