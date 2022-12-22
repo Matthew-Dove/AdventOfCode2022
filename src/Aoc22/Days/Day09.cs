@@ -50,7 +50,6 @@ public class Day09
     {
         var positions = new HashSet<string>(new[] { "(0,0)" });
         var knots = Enumerable.Repeat<(int r, int c)>((0, 0), 10).ToArray();
-        Print(knots);
 
         for (int i = 0; i < moves.Length; i++)
         {
@@ -63,7 +62,6 @@ public class Day09
 
                 for (int k = 1; k < knots.Length; k++)
                 {
-                    //Print(knots);
                     if (ShouldFollow(knots[k], knots[k - 1]))
                     {
                         knots[k] = GetPosition(knots[k], knots[k - 1]);
@@ -100,33 +98,6 @@ public class Day09
         if (tail.x < head.x && tail.y > head.y) return (tail.y - 1, tail.x + 1); // Head moved bottom right.
 
         return (0, 0); // Won't reach here.
-    }
-
-    private void Print((int row, int column)[] knots)
-    {
-        var grid = new char[20, 20];
-        var view = new StringBuilder();
-
-        for (int i = 0; i < knots.Length; i++)
-        {
-            if (grid[knots[i].row, knots[i].column] == default)
-            {
-                var target = i.ToString()[0];
-                grid[knots[i].row, knots[i].column] = i == 0 ? 'H' : target;
-            }
-        }
-
-        for (int i = 0; i < grid.GetLength(0); i++)
-        {
-            for (int j = 0; j < grid.GetLength(1); j++)
-            {
-                var target = grid[i, j];
-                view.Append(target == default ? '.' : target);
-            }
-            view.AppendLine();
-        }
-
-        System.Diagnostics.Debug.WriteLine(view.ToString());
     }
 }
 

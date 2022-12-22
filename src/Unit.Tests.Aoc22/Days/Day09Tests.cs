@@ -70,6 +70,6 @@ U 20";
         var moves = _day09.Parse(input);
         var position = _day09.SimulatePartTwo(moves);
 
-        Assert.AreEqual(6256, position);
+        Assert.AreEqual(2665, position);
     }
 }
