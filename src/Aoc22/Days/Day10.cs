@@ -9,19 +9,17 @@ public class Day10
 
     public int GetSignalStrength(Program[] program, params int[] targetCycles)
     {
-        var sum = 0;
+        var signalStrength = 0;
 
         for (int i = 0; i < targetCycles.Length; i++)
         {
-            var cycleValue = GetCycleValue(program, targetCycles[i]);
-            var signalStrength = cycleValue * targetCycles[i];
-            sum += signalStrength;
+            signalStrength += GetRegister(program, targetCycles[i]) * targetCycles[i];
         }
 
-        return sum;
+        return signalStrength;
     }
 
-    private int GetCycleValue(Program[] program, int targetCycle)
+    private int GetRegister(Program[] program, int targetCycle)
     {
         int cycles = 0, register = 1;
 
@@ -34,6 +32,47 @@ public class Day10
         }
 
         return 0;
+    }
+
+    private int[] Execute(Program[] program)
+    {
+        var positions = new List<int>();
+        var register = 1;
+
+        for (int i = 0; i < program.Length; i++)
+        {
+            positions.Add(register); // noop, or the first cycle of addx.
+            if (program[i].Cycles == 2) 
+            {
+                positions.Add(register); // second cycle of addx.
+                register += program[i].Value; // after the second cycle of addx the register is updated.
+            }
+        }
+
+        return positions.ToArray();
+    }
+
+    public string Draw(Program[] program)
+    {
+        var sb = new StringBuilder().AppendLine();
+        var positions = Execute(program);
+
+        for (int i = 0; i < 240; i++)
+        {
+            var register = positions[i];
+            var crt = i % 40;
+            var print = '.';
+
+            if (register == crt - 1 || register == crt || register == crt + 1)
+            {
+                print = '#';
+            }
+
+            sb.Append(print);
+            if ((i + 1) % 40 == 0) sb.AppendLine();
+        }
+
+        return sb.ToString();
     }
 }
 
